@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>logistica</title>
+		<link rel="stylesheet" href="/src/css/index.css" />
+	</head>
+	<body>
+		<div id="root">
+			<div class="h-[100svh] flex text-slate-900">
+				<header class="w-[20vw] min-w-fit">
+					<aside
+						class="h-[100svh] px-5 py-10 space-y-3 text-white bg-slate-900 font-semibold [&>*]:transition [&>*]:block [&>*]:rounded-md [&>*]:cursor-pointer"
+					>
+						<div data-view="settings" class="hover:bg-white/[15%] py-3 px-6">settings</div>
+						<div data-view="matrice" class="hover:bg-white/[15%] py-3 px-6">matrice</div>
+						<div class="h-[2px] rounded opacity-50 bg-gray-50"></div>
+						<div data-view="nordovest" class="hover:bg-white/[15%] py-3 px-6">nord ovest</div>
+						<div data-view="minimicosti" class="hover:bg-white/[15%] py-3 px-6">minimi costi</div>
+						<!-- 'bg-white/[35%]' : 'hover:bg-white/[15%]' attivo/non attivo -->
+					</aside>
+				</header>
+				<main class="w-[80vw] bg-purple-400 [&>*]:h-[100svh]">
+					<section id="settings" class="px-4 mx-auto bg-purple-300 md:w-2/3">
+						<form id="genera_tabella" class="mb-10">
+							<p class="font-semibold">genera tabella</p>
+							<input
+								type="number"
+								min="1"
+								name="righe"
+								placeholder="righe"
+								class="peer/righe"
+								required
+							/>
+							<input
+								type="number"
+								min="1"
+								name="colonne"
+								placeholder="colonne"
+								class="peer/colonne"
+								required
+							/>
+							<p class="invisible mt-2 text-sm text-pink-600 peer-invalid/righe:visible">
+								Please provide a valid righe address.
+							</p>
+							<p class="invisible mt-2 text-sm text-pink-600 peer-invalid/colonne:visible">
+								Please provide a valid colonne address.
+							</p>
+							<input
+								type="submit"
+								class="block px-6 py-2 transition border rounded hover:bg-slate-800 hover:text-white"
+								value="genera tabella"
+							/>
+						</form>
+
+						<form id="riempi_tabella" inert class="opacity-50">
+							<p class="font-semibold">riempi tabella</p>
+							<input
+								type="number"
+								min="0"
+								name="minimo_matrice"
+								placeholder="minimo matrice"
+								required
+								value="10"
+							/>
+							<input
+								type="number"
+								min="1"
+								name="massimo_matrice"
+								placeholder="massimo matrice"
+								required
+								value="100"
+							/>
+							<br />
+							<input
+								type="number"
+								min="0"
+								name="minimo_totali"
+								placeholder="minimo totali"
+								required
+								value="100"
+							/>
+							<input
+								type="number"
+								min="1"
+								name="massimo_totali"
+								placeholder="massimo totali"
+								required
+								value="400"
+							/>
+
+							<input
+								type="submit"
+								class="block px-6 py-2 transition border rounded hover:bg-slate-800 hover:text-white"
+								value="riempi tabella"
+							/>
+						</form>
+
+						<!-- <div class="text-2xl font-semibold">genera tabella</div> -->
+					</section>
+					<section id="matrice" class="hidden">matrice</section>
+					<section id="nordovest" class="hidden">nordovest</section>
+					<section id="minimicosti" class="hidden">minimicosti</section>
+				</main>
+			</div>
+		</div>
+
+		<script type="module" src="/src/js/controller.js"></script>
+	</body>
+</html>

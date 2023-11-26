@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* rimuove le frecce nell'input:number */
+/* input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type='number'] {
+	-moz-appearance: textfield;
+} */
+/* finito */
+
+@layer components {
+	[type='text'],
+	input:where(:not([type])),
+	[type='email'],
+	[type='url'],
+	[type='password'],
+	[type='number'],
+	[type='date'],
+	[type='datetime-local'],
+	[type='month'],
+	[type='search'],
+	[type='tel'],
+	[type='time'],
+	[type='week'],
+	[multiple],
+	textarea,
+	select {
+		/* @apply block transition border-gray-300 rounded-lg shadow-sm focus:border-blue-500/50 focus:ring-blue-500/50; */
+	}
+
+	[type='submit']{
+		/* @apply text-white rounded bg-slate-800 */
+	}
+}
