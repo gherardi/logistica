@@ -7,7 +7,7 @@
 		<title>logistica</title>
 		<link rel="stylesheet" href="/src/css/index.css" />
 	</head>
-	<body>
+	<body class="">
 		<div id="root">
 			<div class="h-[100svh] flex text-slate-900">
 				<header class="w-[20vw] min-w-fit">
@@ -23,7 +23,7 @@
 					</aside>
 				</header>
 				<main class="w-[80vw] bg-purple-400 [&>*]:h-[100svh]">
-					<section id="settings" class="px-4 mx-auto bg-purple-300 md:w-2/3">
+					<section id="settings" class="px-4 bg-purple-300 md:w-2/3">
 						<form id="genera_tabella" class="mb-10">
 							<p class="font-semibold">genera tabella</p>
 							<input
@@ -32,6 +32,7 @@
 								name="righe"
 								placeholder="righe"
 								class="peer/righe"
+								value="3"
 								required
 							/>
 							<input
@@ -39,15 +40,16 @@
 								min="1"
 								name="colonne"
 								placeholder="colonne"
-								class="peer/colonne"
+								class="transition peer/colonne invalid:ring-red-400"
+								value="5"
 								required
 							/>
-							<p class="invisible mt-2 text-sm text-pink-600 peer-invalid/righe:visible">
+							<!-- <p class="invisible mt-2 text-sm text-pink-600 peer-invalid/righe:visible">
 								Please provide a valid righe address.
 							</p>
 							<p class="invisible mt-2 text-sm text-pink-600 peer-invalid/colonne:visible">
 								Please provide a valid colonne address.
-							</p>
+							</p> -->
 							<input
 								type="submit"
 								class="block px-6 py-2 transition border rounded hover:bg-slate-800 hover:text-white"
@@ -100,7 +102,134 @@
 
 						<!-- <div class="text-2xl font-semibold">genera tabella</div> -->
 					</section>
-					<section id="matrice" class="hidden">matrice</section>
+					<section id="matrice" class="hidden overflow-auto bg-emerald-400">
+						<table class="text-left border border-collapse">
+							<thead class="sticky top-0 z-10 uppercase bg-white">
+								<tr
+									class="bg-red-200 [&>*]:border [&>*]:px-6 [&>*]:py-3 [&>*]:whitespace-nowrap [&>*]:font-semibold"
+								>
+									<th scope="col" class="sticky left-0 bg-red-400"></th>
+									<th contenteditable scope="col" data-colonna="">consumatore n: 0</th>
+									<th contenteditable scope="col" data-colonna="">consumatore n: 1</th>
+									<th contenteditable scope="col" data-colonna="">consumatore n: 2</th>
+									<th contenteditable scope="col" data-colonna="">consumatore n: 3</th>
+									<th contenteditable scope="col" data-colonna="">consumatore n: 4</th>
+									<th contenteditable scope="col" data-colonna="">consumatore n: 5</th>
+									<th contenteditable scope="col" data-colonna="">consumatore n: 6</th>
+									<th contenteditable scope="col" data-colonna="">consumatore n: 7</th>
+									<th scope="col">produzione</th>
+								</tr>
+							</thead>
+
+							<tbody class="[&>*:nth-child(odd)]:bg-gray-100 [&>*:nth-child(even)]:bg-white">
+								<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-4">
+									<th
+										contenteditable
+										scope="row"
+										class="sticky left-0 font-semibold uppercase bg-red-400 whitespace-nowrap"
+									>
+										produttore n:0
+									</th>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<th contenteditable scope="row">500</th>
+								</tr>
+								<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-4">
+									<th
+										contenteditable
+										scope="row"
+										class="sticky left-0 font-semibold uppercase bg-red-400 whitespace-nowrap"
+									>
+										produttore n:1
+									</th>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<th contenteditable scope="row">500</th>
+								</tr>
+								<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-4">
+									<th
+										contenteditable
+										scope="row"
+										class="sticky left-0 font-semibold uppercase bg-red-400 whitespace-nowrap"
+									>
+										produttore n:2
+									</th>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<th contenteditable scope="row">500</th>
+								</tr>
+								<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-4">
+									<th
+										contenteditable
+										scope="row"
+										class="sticky left-0 font-semibold uppercase bg-red-400 whitespace-nowrap"
+									>
+										produttore n:3
+									</th>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<th contenteditable scope="row">500</th>
+								</tr>
+								<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-4">
+									<th
+										contenteditable
+										scope="row"
+										class="sticky left-0 font-semibold uppercase bg-red-400 whitespace-nowrap"
+									>
+										produttore n:4
+									</th>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<td contenteditable data-riga="" data-colonna="">50</td>
+									<th contenteditable scope="row">500</th>
+								</tr>
+							</tbody>
+
+							<tfoot class="uppercase">
+								<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-3 [&>*]:bg-white">
+									<th scope="col" class="sticky left-0 bg-red-400">fabbisogno</th>
+									<th contenteditable scope="col">500</th>
+									<th contenteditable scope="col">500</th>
+									<th contenteditable scope="col">500</th>
+									<th contenteditable scope="col">500</th>
+									<th contenteditable scope="col">500</th>
+									<th contenteditable scope="col">500</th>
+									<th contenteditable scope="col">500</th>
+									<th contenteditable scope="col">500</th>
+									<th scope="col"></th>
+								</tr>
+							</tfoot>
+						</table>
+					</section>
 					<section id="nordovest" class="hidden">nordovest</section>
 					<section id="minimicosti" class="hidden">minimicosti</section>
 				</main>
@@ -108,5 +237,6 @@
 		</div>
 
 		<script type="module" src="/src/js/controller.js"></script>
+		<!-- <script type="module" src="/src/js/views/matriceView.js"></script> -->
 	</body>
 </html>
