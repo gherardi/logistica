@@ -5,8 +5,8 @@ class MatriceView extends TableView {
 	}
 
 	addHandlerChange(state, handler) {
-		// valori delle celle
-		document.querySelectorAll('[data-riga][data-colonna]').forEach((cella) => {
+		// MODIFICARE I VALORI DELLA MATRICE CELLE
+		this.parentElement.querySelectorAll('[data-riga][data-colonna]').forEach((cella) => {
 			cella.addEventListener('keypress', (e) => {
 				if (isNaN(String.fromCharCode(e.which))) e.preventDefault();
 			});
@@ -18,8 +18,8 @@ class MatriceView extends TableView {
 			});
 		});
 
-		// valori del totali 
-		document.querySelectorAll('[data-riga][data-produzione]').forEach((cella) => {
+		// MODIFICARE I VALORI DEL TOTALI PRODUZIONE
+		this.parentElement.querySelectorAll('[data-riga][data-produzione]').forEach((cella) => {
 			cella.addEventListener('keypress', (e) => {
 				if (isNaN(String.fromCharCode(e.which))) e.preventDefault();
 			});
@@ -31,7 +31,8 @@ class MatriceView extends TableView {
 			});
 		});
 
-		document.querySelectorAll('[data-colonna][data-fabbisogno]').forEach((cella) => {
+		// MODIFICARE I VALORI DEL TOTALI FABBISOGNO
+		this.parentElement.querySelectorAll('[data-colonna][data-fabbisogno]').forEach((cella) => {
 			cella.addEventListener('keypress', (e) => {
 				if (isNaN(String.fromCharCode(e.which))) e.preventDefault();
 			});
@@ -43,21 +44,20 @@ class MatriceView extends TableView {
 			});
 		});
 
-		// valori dei nomi dei produttori
-		document.querySelectorAll('[data-produttore]').forEach((cella) => {
+		// MODIFICARE I NOMINATIVI DEI PRODUTTORI
+		this.parentElement.querySelectorAll('[data-produttore]').forEach((cella) => {
 			cella.addEventListener('keyup', (e) => {
 				const { produttore } = e.target.dataset;
 				state.produttori[produttore] = e.target.innerText;
-				console.log(state.produttori);
 				handler();
 			});
 		});
-		// valori dei nomi dei consumatori
-		document.querySelectorAll('[data-consumatore]').forEach((cella) => {
+
+		// MODIFICARE I NOMINATIVI DEI CONSUMATORI
+		this.parentElement.querySelectorAll('[data-consumatore]').forEach((cella) => {
 			cella.addEventListener('keyup', (e) => {
 				const { consumatore } = e.target.dataset;
 				state.consumatori[consumatore] = e.target.innerText;
-				console.log(state.consumatori);
 				handler();
 			});
 		});

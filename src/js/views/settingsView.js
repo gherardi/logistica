@@ -10,25 +10,29 @@ class SettingsView {
 			this.parentElement.querySelector('#riempi_tabella').classList.remove('opacity-50');
 			this.parentElement.querySelector('#riempi_tabella').inert = false;
 
-      handler(data);
+			handler(data);
 		});
 	}
-  addHandlerFill(handler) {
-    this.parentElement.querySelector('#riempi_tabella').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const dataArr = [...new FormData(e.target)];
-      const data = Object.fromEntries(dataArr);
-    
-      for (const key in data) data[key] = data[key] ? Number(data[key]) : 0;
-      if (data.minimo_matrice >= data.massimo_matrice || data.minimo_totali >= data.massimo_totali)
-        return alert('il massimo deve essere maggiore del minimo');
-    
-      const matriceValori = { minimo: data.minimo_matrice, massimo: data.massimo_matrice };
-      const totaliValori = { minimo: data.minimo_totali, massimo: data.massimo_totali };
-      handler(matriceValori, totaliValori)
-    });
-  }
+	addHandlerFill(handler) {
+		this.parentElement.querySelector('#riempi_tabella').addEventListener('submit', (e) => {
+			e.preventDefault();
+			const dataArr = [...new FormData(e.target)];
+			const data = Object.fromEntries(dataArr);
 
+			for (const key in data) data[key] = data[key] ? Number(data[key]) : 0;
+
+			const { minimo_matrice, massimo_matrice, minimo_totali, massimo_totali } = data;
+
+			if (minimo_matrice >= massimo_matrice || minimo_totali >= massimo_totali) {
+				return alert('Il massimo deve essere maggiore del minimo');
+			}
+
+			const matriceValori = { minimo: minimo_matrice, massimo: massimo_matrice };
+			const totaliValori = { minimo: minimo_totali, massimo: massimo_totali };
+
+			handler(matriceValori, totaliValori);
+		});
+	}
 }
 
 export default new SettingsView();

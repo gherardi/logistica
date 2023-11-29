@@ -28,11 +28,12 @@ export const riempiMatrice = function () {
 	state.matrice.valori = Array.from({ length: state.righe }, () =>
 		Array.from({ length: state.colonne }).fill(0)
 	);
+};
 
-	// RIEMPI I TOTALI DI NUMERI ZERO
+export const riempiTotali = function(){
 	state.totali.fabbisogno = Array.from({ length: state.colonne }).fill(0);
 	state.totali.produzione = Array.from({ length: state.righe }).fill(0);
-};
+}
 
 export const riempiMatriceRandom = function () {
 	// state.matrice.valori = Array.from({ length: state.righe }, () =>
@@ -48,7 +49,7 @@ export const riempiMatriceRandom = function () {
 	);
 };
 
-export const riempiTotali = function () {
+export const riempiTotaliRandom = function () {
 	const regenerateArrays = () => {
 		state.totali.produzione = generateArray(state.righe, state.totali.minimo, state.totali.massimo);
 		state.totali.fabbisogno = generateArray(

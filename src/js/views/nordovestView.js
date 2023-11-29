@@ -5,16 +5,18 @@ class NordovestView extends TableView {
 		super('#nordovest');
 	}
 
-	// impostare il totali in basso a destra della somma dei totali
 	metodo(state) {
 		// magari fare anche un controllo sui valori che devono essere tutti positivi e interi
 		if (calculateSum(state.totali.produzione) !== calculateSum(state.totali.fabbisogno)) {
 			alert('i totali non corrispondono');
 			return;
 		}
+		// impostare il totali in basso a destra della somma dei totali
 		this.tableFooterEl.querySelector('[data-totale]').innerText = calculateSum(
 			state.totali.produzione
 		);
+
+		// ciclare per il numero dei fabbisogni, tanto sono uguali alla fine
 	}
 }
 
