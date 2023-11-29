@@ -6,11 +6,13 @@ class AsideView {
 		this.matriceView = document.querySelector('#matrice');
 		this.nordovestView = document.querySelector('#nordovest');
 		this.minimicostiView = document.querySelector('#minimicosti');
+		this.riepilogoView = document.querySelector('#riepilogo');
 		this.alias = {
 			settings: this.settingsView,
 			matrice: this.matriceView,
 			nordovest: this.nordovestView,
 			minimicosti: this.minimicostiView,
+			riepilogo: this.riepilogoView,
 		};
 	}
 	addHandlerClick() {
@@ -21,6 +23,7 @@ class AsideView {
 				this.matriceView.classList.add('hidden');
 				this.nordovestView.classList.add('hidden');
 				this.minimicostiView.classList.add('hidden');
+				this.riepilogoView.classList.add('hidden');
 
 				this.alias[currentView].classList.remove('hidden');
 			}

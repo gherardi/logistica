@@ -35,9 +35,9 @@ export const riempiMatrice = function () {
 };
 
 export const riempiMatriceRandom = function () {
-	state.matrice.valori = Array.from({ length: state.righe }, () =>
-		Array.from({ length: state.colonne }).fill(0)
-	);
+	// state.matrice.valori = Array.from({ length: state.righe }, () =>
+	// 	Array.from({ length: state.colonne }).fill(0)
+	// );
 
 	state.matrice.valori = Array.from({ length: state.righe }, () =>
 		Array.from({ length: state.colonne }, () => {

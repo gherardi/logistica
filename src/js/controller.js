@@ -1,6 +1,9 @@
 import AsideView from './views/asideView.js';
+
 import SettingsView from './views/settingsView.js';
 import MatriceView from './views/matriceView.js';
+import NordovestView from './views/nordovestView.js';
+// import MinimicostiView from './views/minimicostiView.js';
 
 import * as model from './model.js';
 
@@ -46,7 +49,9 @@ import * as model from './model.js';
 const controlCreateTable = function (tableData) {
 	Object.assign(model.state, tableData);
 	model.riempiMatrice();
-	MatriceView.render(model.state);
+	MatriceView.renderTable(model.state);
+	MatriceView.addHandlerChange(model.state, updateViews);
+	updateViews();
 };
 
 const controlFillTable = function (matriceData, totaliData) {
@@ -57,7 +62,15 @@ const controlFillTable = function (matriceData, totaliData) {
 	model.riempiMatriceRandom();
 	model.riempiTotali();
 	// render della matrice sulla matriceView
-	MatriceView.render(model.state);
+	MatriceView.renderTable(model.state);
+	MatriceView.addHandlerChange(model.state, updateViews);
+
+	updateViews();
+};
+
+const updateViews = function () {
+	NordovestView.renderTable(model.state);
+	// MinimicostiView.renderTable(model.state);
 };
 
 // riempire la tabella in base ai parametri
@@ -76,8 +89,10 @@ const controlFillTable = function (matriceData, totaliData) {
 // 	Object.assign(model.state.totali, totali);
 // });
 
+// NAVIGATION
 AsideView.addHandlerClick();
 
+// IMPOSTARE I PARAMETRI
 SettingsView.addHandlerCreate(controlCreateTable);
 SettingsView.addHandlerFill(controlFillTable);
 
