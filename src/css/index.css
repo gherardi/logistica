@@ -30,10 +30,10 @@ input[type='number'] {
 	[multiple],
 	textarea,
 	select {
-		/* @apply block transition border-gray-300 rounded-lg shadow-sm focus:border-blue-500/50 focus:ring-blue-500/50; */
+		@apply block transition border-2 rounded-md shadow border-neutral-900 invalid:border-invalid focus:ring-0 focus:outline-0;
 	}
 
-	[type='submit']{
-		/* @apply text-white rounded bg-slate-800 */
+	[type='submit'] {
+		@apply block px-6 py-3 text-sm font-medium transition rounded-md cursor-pointer bg-neutral-900 text-neutral-100;
 	}
 }

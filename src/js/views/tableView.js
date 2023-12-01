@@ -21,7 +21,7 @@ export default class TableView {
 		const isEditable = this.parentElement.id === 'matrice' ? 'contenteditable' : '';
 		for (let c = 0; c < state.colonne; c++) {
 			const consumatore = state.consumatori[c];
-			headerHTML += `<th ${isEditable} scope="col" data-consumatore=${c}>${consumatore}</th>`;
+			headerHTML += `<th ${isEditable} scope="col" data-colonna=${c} data-consumatore=${c}>${consumatore}</th>`;
 		}
 		headerHTML += '<th scope="col">produzione</th>';
 		this.tableHeaderEl.insertAdjacentHTML('beforeend', headerHTML);
@@ -32,8 +32,11 @@ export default class TableView {
 		const isEditable = this.parentElement.id === 'matrice' ? 'contenteditable' : '';
 		for (let r = 0; r < state.righe; r++) {
 			const produttore = state.produttori[r];
-			let rowHTML = `<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-4" data-riga=${r}>
-				<th ${isEditable} scope="row" class="sticky left-0 uppercase whitespace-nowrap" data-produttore=${r}>${produttore}</th>`;
+			
+			let rowHTML = `<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-4 first:bg-white" data-riga=${r}>
+				<th ${isEditable} scope="row" class="sticky left-0 uppercase whitespace-nowrap" data-produttore=${r}
+				style="background-color: white !important"
+				>${produttore}</th>`;
 			for (let c = 0; c < state.colonne; c++) {
 				const valore = state.matrice.valori[r][c];
 				rowHTML += `<td ${isEditable} data-riga=${r} data-colonna=${c} data-value=${valore}>${

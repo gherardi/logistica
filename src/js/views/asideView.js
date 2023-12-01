@@ -18,6 +18,11 @@ class AsideView {
 	addHandlerClick() {
 		this.parentElement.addEventListener('click', (e) => {
 			if (e.target?.dataset?.view) {
+				this.parentElement
+					.querySelectorAll('[data-view]')
+					.forEach((el) => el.classList.remove('!bg-active/10'));
+
+				e.target.classList.add('!bg-active/10');
 				const currentView = e.target.dataset.view;
 				this.settingsView.classList.add('hidden');
 				this.matriceView.classList.add('hidden');
