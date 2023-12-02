@@ -18,21 +18,26 @@ class AsideView {
 	addHandlerClick() {
 		this.parentElement.addEventListener('click', (e) => {
 			if (e.target?.dataset?.view) {
-				this.parentElement
-					.querySelectorAll('[data-view]')
-					.forEach((el) => el.classList.remove('!bg-active/10'));
-
-				e.target.classList.add('!bg-active/10');
-				const currentView = e.target.dataset.view;
-				this.settingsView.classList.add('hidden');
-				this.matriceView.classList.add('hidden');
-				this.nordovestView.classList.add('hidden');
-				this.minimicostiView.classList.add('hidden');
-				this.riepilogoView.classList.add('hidden');
-
-				this.alias[currentView].classList.remove('hidden');
+				this.handleItemHover(e.target);
+				this.handleChangeView(e.target.dataset.view);
 			}
 		});
+	}
+	handleItemHover(el) {
+		this.parentElement
+			.querySelectorAll('[data-view]')
+			.forEach((el) => el.classList.remove('!bg-active/10'));
+		el.classList.add('!bg-active/10');
+	}
+
+	handleChangeView(view) {
+		this.settingsView.classList.add('hidden');
+		this.matriceView.classList.add('hidden');
+		this.nordovestView.classList.add('hidden');
+		this.minimicostiView.classList.add('hidden');
+		this.riepilogoView.classList.add('hidden');
+
+		this.alias[view].classList.remove('hidden');
 	}
 }
 

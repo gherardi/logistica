@@ -4,8 +4,6 @@ class NordovestView extends TableView {
 	constructor() {
 		super('#nordovest');
 		this.costoTotale = 0;
-		this.passaggi = [];
-		this.trigger = document.querySelector('#nordovest-trigger');
 	}
 
 	async metodo(state) {

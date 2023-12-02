@@ -32,9 +32,9 @@ export default class TableView {
 		const isEditable = this.parentElement.id === 'matrice' ? 'contenteditable' : '';
 		for (let r = 0; r < state.righe; r++) {
 			const produttore = state.produttori[r];
-			
+
 			let rowHTML = `<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-4 first:bg-white" data-riga=${r}>
-				<th ${isEditable} scope="row" class="sticky left-0 uppercase whitespace-nowrap" data-produttore=${r}
+				<th ${isEditable} scope="row" class="sticky left-0 uppercase whitespace-nowrap font-semibold" data-produttore=${r}
 				style="background-color: white !important"
 				>${produttore}</th>`;
 			for (let c = 0; c < state.colonne; c++) {
@@ -52,7 +52,7 @@ export default class TableView {
 	}
 
 	drawFooter(state) {
-		let footerHTML = `<th scope="col" class="sticky left-0">fabbisogno</th>`;
+		let footerHTML = `<th scope="col" class="sticky left-0 font-semibold">fabbisogno</th>`;
 		const isEditable = this.parentElement.id === 'matrice' ? 'contenteditable' : '';
 		for (let c = 0; c < state.colonne; c++) {
 			footerHTML += `<th ${isEditable} scope="col" data-colonna=${c} data-fabbisogno=${

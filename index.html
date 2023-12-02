@@ -278,7 +278,7 @@
 
 						<!-- <div class="text-2xl font-semibold">genera tabella</div> -->
 					</section>
-					<section id="matrice" class="hidden overflow-auto bg-teal-400">
+					<section id="matrice" class="hidden overflow-auto group">
 						<table class="text-left border border-collapse">
 							<thead class="sticky top-0 z-10 uppercase bg-white">
 								<tr
@@ -291,11 +291,11 @@
 							></tbody>
 
 							<tfoot class="uppercase">
-								<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-3"></tr>
+								<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-3 first:bg-white"></tr>
 							</tfoot>
 						</table>
 					</section>
-					<section id="nordovest" class="hidden overflow-auto bg-indigo-500">
+					<section id="nordovest" class="hidden overflow-auto">
 						<table class="text-left border border-collapse">
 							<thead class="sticky top-0 z-10 uppercase bg-white">
 								<tr
@@ -310,7 +310,7 @@
 							</tfoot>
 						</table>
 					</section>
-					<section id="minimicosti" class="hidden overflow-auto bg-orange-500">
+					<section id="minimicosti" class="hidden overflow-auto">
 						<table class="text-left border border-collapse">
 							<thead class="sticky top-0 z-10 uppercase bg-white">
 								<tr
@@ -325,7 +325,52 @@
 							</tfoot>
 						</table>
 					</section>
-					<section id="riepilogo" class="hidden bg-cyan-400">riepilogo</section>
+					<section id="riepilogo" class="hidden px-8 py-8">
+						<div
+							class="flex items-stretch h-full space-x-8 [&>*]:rounded-lg [&>*]:bg-white [&>*]:shrink-0 [&>*]:shadow-md [&>*]:w-1/3"
+						>
+							<div class="px-10 py-8 overflow-auto">
+								<div class="flex items-center justify-between">
+									<h2 class="text-2xl font-semibold">nord-ovest</h2>
+									<!-- <div class="px-2 text-sm font-medium text-red-900 rounded-full bg-red-400/50">Non iniziato</div> -->
+									<!-- <div
+										class="px-2 text-sm font-medium text-yellow-900 rounded-full text--900 bg-yellow-400/50"
+										>
+										In corso
+									</div> -->
+									<div class="px-2 text-sm font-medium text-green-900 rounded-full bg-green-400/50">
+										Completato
+									</div>
+								</div>
+								<!-- <hr> -->
+								<div class="h-[2px] bg-hover/10 mt-2 mb-6"></div>
+								<ul class="space-y-3">
+									<li class="bg-red-000">
+										<div class="font-semibold">Da produttore nr.4 a consumatore nr.7:</div>
+										<p>37 unità a 80€ = 4500€</p>
+									</li>
+									<li class="bg-red-000">
+										<div class="font-semibold">Da produttore nr.4 a consumatore nr.7:</div>
+										<p>37 unità a 80€ = 4500€</p>
+									</li>
+									<li class="bg-red-000">
+										<div class="font-semibold">Da produttore nr.4 a consumatore nr.7:</div>
+										<p>37 unità a 80€ = 4500€</p>
+									</li>
+									<li class="bg-red-000">
+										<div class="font-semibold">Da produttore nr.4 a consumatore nr.7:</div>
+										<p>37 unità a 80€ = 4500€</p>
+									</li>
+									<li class="bg-red-000">
+										<div class="font-semibold">Da produttore nr.4 a consumatore nr.7:</div>
+										<p>37 unità a 80€ = 4500€</p>
+									</li>
+								</ul>
+								<div class="h-[2px] bg-hover/10 mb-2 mt-6"></div>
+								<div class="mt-5"><span class="font-semibold">Totale: </span>345.000€</div>
+							</div>
+						</div>
+					</section>
 				</main>
 			</div>
 		</div>

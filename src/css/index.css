@@ -37,3 +37,18 @@ input[type='number'] {
 		@apply block px-6 py-3 text-sm font-medium transition rounded-md cursor-pointer bg-neutral-900 text-neutral-100;
 	}
 }
+
+.flash {
+	/* creami una classe css che quando applicata l'elemento viene applicato un flash che scompare subito */
+	animation: flasha 0.4s ease-in-out;
+}
+
+@keyframes flasha {
+	0% {
+		background-color: rgb(212 212 212 / 0.1);
+	}
+
+	100% {
+		background-color: transparent;
+	}
+}

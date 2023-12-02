@@ -7,8 +7,10 @@ class SettingsView {
 			const dataArr = [...new FormData(e.target)];
 			const data = Object.fromEntries(dataArr);
 			for (const key in data) data[key] = data[key] ? Number(data[key]) : 0;
-			this.parentElement.querySelector('#riempi_tabella').classList.remove('opacity-50');
+			this.parentElement.querySelector('#riempi_tabella').classList.remove('opacity-50', 'blur-sm');
 			this.parentElement.querySelector('#riempi_tabella').inert = false;
+
+			document.querySelector('[data-view="matrice"]').classList.add("flash")
 
 			handler(data);
 		});
