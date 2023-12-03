@@ -26,20 +26,16 @@ export const riempiMatrice = function () {
 	state.consumatori = Array.from({ length: state.colonne }, (_, i) => `consumatore n:${i}`);
 
 	state.matrice.valori = Array.from({ length: state.righe }, () =>
-		Array.from({ length: state.colonne }).fill(0)
+		Array.from({ length: state.colonne }).fill('')
 	);
 };
 
 export const riempiTotali = function(){
-	state.totali.fabbisogno = Array.from({ length: state.colonne }).fill(0);
-	state.totali.produzione = Array.from({ length: state.righe }).fill(0);
+	state.totali.fabbisogno = Array.from({ length: state.colonne }).fill('');
+	state.totali.produzione = Array.from({ length: state.righe }).fill('');
 }
 
 export const riempiMatriceRandom = function () {
-	// state.matrice.valori = Array.from({ length: state.righe }, () =>
-	// 	Array.from({ length: state.colonne }).fill(0)
-	// );
-
 	state.matrice.valori = Array.from({ length: state.righe }, () =>
 		Array.from({ length: state.colonne }, () => {
 			const random =

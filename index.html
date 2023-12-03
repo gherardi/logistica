@@ -152,6 +152,7 @@
 							</svg>
 							Minimi costi
 						</div>
+
 						<div data-view="riepilogo" class="flex mt-auto hover:bg-hover/10">
 							<svg
 								class="pointer-events-none"
@@ -221,7 +222,7 @@
 							<input type="submit" value="genera tabella" />
 						</form>
 
-						<form id="riempi_tabella" inert class="opacity-50 blur-sm">
+						<form id="riempi_tabella" inert class="opacity-25">
 							<h4>riempi tabella</h4>
 							<div class="grid grid-cols-2">
 								<div>
@@ -295,7 +296,7 @@
 							</tfoot>
 						</table>
 					</section>
-					<section id="nordovest" class="hidden overflow-auto">
+					<section id="nordovest" class="relative hidden overflow-auto">
 						<table class="text-left border border-collapse">
 							<thead class="sticky top-0 z-10 uppercase bg-white">
 								<tr
@@ -306,11 +307,11 @@
 								class="[&>*:nth-child(odd)]:bg-gray-100 [&>*:nth-child(even)]:bg-white"
 							></tbody>
 							<tfoot class="uppercase">
-								<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-3 first:bg-white"></tr>
+								<tr class="[&>*]:border [&>*]:px-6 [&>*]:py-3"></tr>
 							</tfoot>
 						</table>
 					</section>
-					<section id="minimicosti" class="hidden overflow-auto">
+					<section id="minimicosti" class="relative hidden overflow-auto">
 						<table class="text-left border border-collapse">
 							<thead class="sticky top-0 z-10 uppercase bg-white">
 								<tr

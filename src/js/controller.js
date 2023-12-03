@@ -4,6 +4,7 @@ import SettingsView from './views/settingsView.js';
 import MatriceView from './views/matriceView.js';
 import NordovestView from './views/nordovestView.js';
 import MinimicostiView from './views/minimicostiView.js';
+import RiepilogoView from './views/riepilogoView.js';
 
 import * as model from './model.js';
 
@@ -31,7 +32,9 @@ const controlFillTable = function (matriceData, totaliData) {
 
 const updateViews = function () {
 	NordovestView.renderTable(model.state);
+	NordovestView.addHandlerResolve(model.state);
 	MinimicostiView.renderTable(model.state);
+	MinimicostiView.addHandlerResolve(model.state);
 };
 
 // NAVIGATION
@@ -41,16 +44,5 @@ AsideView.addHandlerClick();
 SettingsView.addHandlerCreate(controlCreateTable);
 SettingsView.addHandlerFill(controlFillTable);
 
-// SPAGHETTI CODE PROVISSORIO PER DEVELOPMENT
-// setTimeout(() => {
-// 	document.querySelector('#genera_tabella > input[type=submit]').click();
-// 	document.querySelector('#riempi_tabella > input[type=submit]').click();
-// 	// setTimeout(() => {
-// 		// document.querySelector('#root > div > header > aside > div:nth-child(5)').click();
-// 		setTimeout(() => {
-// 			console.log(model.state);
-// 			NordovestView.metodo(model.state);
-// 			MinimicostiView.metodo(model.state);
-// 		}, 1*60*1000);
-// 	// }, 500);
-// }, 500);
+
+console.log('https://github.com/gherardi/logistica');

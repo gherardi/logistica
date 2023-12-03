@@ -1,16 +1,23 @@
 class SettingsView {
 	parentElement = document.querySelector('#settings');
 
+	created = false;
+
 	addHandlerCreate(handler) {
 		this.parentElement.querySelector('#genera_tabella').addEventListener('submit', (e) => {
 			e.preventDefault();
+			if (this.created === true) {
+				this.created = false;
+				alert('La tabella attuale verrà sovrascritta, riprova per continuare');
+				return;
+			}
 			const dataArr = [...new FormData(e.target)];
 			const data = Object.fromEntries(dataArr);
 			for (const key in data) data[key] = data[key] ? Number(data[key]) : 0;
-			this.parentElement.querySelector('#riempi_tabella').classList.remove('opacity-50', 'blur-sm');
+			this.parentElement.querySelector('#riempi_tabella').classList.remove('opacity-25');
 			this.parentElement.querySelector('#riempi_tabella').inert = false;
 
-			document.querySelector('[data-view="matrice"]').classList.add("flash")
+			document.querySelector('[data-view="matrice"]').classList.add('flash');
 
 			handler(data);
 		});
