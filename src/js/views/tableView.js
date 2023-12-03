@@ -28,7 +28,7 @@ export default class TableView {
 		const html = `
 			<button
 				data-trigger
-				class="absolute bottom-0 left-0 px-6 py-3 mb-5 ml-5 font-medium rounded-md bg-neutral-900 text-neutral-100"
+				class="sticky bottom-3 left-6 px-6 py-3 my-5 mx-5 font-medium rounded-md bg-neutral-900 text-neutral-100"
 			>
 				Risolvi matrice
 			</button>`;

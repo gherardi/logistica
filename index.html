@@ -2,7 +2,6 @@
 <html lang="it">
 	<head>
 		<meta charset="UTF-8" />
-		<!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>logistica</title>
 		<link rel="stylesheet" href="/src/css/index.css" />
@@ -152,7 +151,6 @@
 							</svg>
 							Minimi costi
 						</div>
-
 						<div data-view="riepilogo" class="flex mt-auto hover:bg-hover/10">
 							<svg
 								class="pointer-events-none"
@@ -182,12 +180,12 @@
 					</aside>
 				</header>
 				<main class="w-[80vw] [&>*]:h-[100svh] bg-neutral-100 text-neutral-900">
-					<section id="settings">
-						<form id="genera_tabella" class="mb-10">
-							<h4>genera tabella</h4>
-							<div class="grid grid-cols-2">
+					<section id="settings" class="px-8 py-8">
+						<form id="genera_tabella" class="mb-14 lg:w-1/3">
+							<h4 class="text-xl font-semibold capitalize">genera tabella</h4>
+							<div class="grid mt-2 md:gap-5 md:grid-cols-2">
 								<div>
-									<label for="righe" class="block">righe</label>
+									<label for="righe" class="block font-medium">righe</label>
 									<input
 										type="number"
 										min="1"
@@ -199,7 +197,7 @@
 										required
 									/>
 									<p class="invisible mt-1 text-sm text-invalid peer-invalid:visible">
-										Please provide a valid righe address.
+										numero non valido
 									</p>
 								</div>
 								<div>
@@ -215,18 +213,18 @@
 										required
 									/>
 									<p class="invisible mt-1 text-sm text-invalid peer-invalid:visible">
-										Please provide a valid colonne address.
+										numero non valido
 									</p>
 								</div>
 							</div>
 							<input type="submit" value="genera tabella" />
 						</form>
 
-						<form id="riempi_tabella" inert class="opacity-25">
-							<h4>riempi tabella</h4>
-							<div class="grid grid-cols-2">
+						<form id="riempi_tabella" inert class="opacity-25 lg:w-1/3">
+							<h4 class="text-xl font-semibold capitalize">riempi tabella</h4>
+							<div class="grid mt-2 mb-6 md:gap-5 md:grid-cols-2">
 								<div>
-									<label for="minimo_matrice" class="block">range valori</label>
+									<label for="minimo_matrice" class="block font-medium">range valori</label>
 									<input
 										type="number"
 										min="0"
@@ -250,7 +248,7 @@
 									/>
 								</div>
 								<div>
-									<label for="minimo_totali" class="block">range totali</label>
+									<label for="minimo_totali" class="block font-medium">range totali</label>
 									<input
 										type="number"
 										min="0"
@@ -276,8 +274,6 @@
 							</div>
 							<input type="submit" value="riempi tabella" />
 						</form>
-
-						<!-- <div class="text-2xl font-semibold">genera tabella</div> -->
 					</section>
 					<section id="matrice" class="hidden overflow-auto group">
 						<table class="text-left border border-collapse">
@@ -334,9 +330,8 @@
 								<h2 class="text-2xl font-semibold">Nord Ovest</h2>
 
 								<div class="h-[2px] bg-hover/10 mt-2 mb-6"></div>
-								<ul class="space-y-3">
-								</ul>
-								<div class="mt-5">
+								<ul class="space-y-3"></ul>
+								<div class="mt-6">
 									<span class="font-semibold">Totale: </span><span data-totale></span>€
 								</div>
 							</div>
@@ -345,9 +340,8 @@
 								<h2 class="text-2xl font-semibold">Minimi Costi</h2>
 
 								<div class="h-[2px] bg-hover/10 mt-2 mb-6"></div>
-								<ul class="space-y-3">
-								</ul>
-								<div class="mt-10">
+								<ul class="space-y-3"></ul>
+								<div class="mt-6">
 									<span class="font-semibold">Totale: </span><span data-totale></span>€
 								</div>
 							</div>

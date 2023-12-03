@@ -30,7 +30,7 @@ input[type='number'] {
 	[multiple],
 	textarea,
 	select {
-		@apply block transition border-2 rounded-md shadow border-neutral-900 invalid:border-invalid focus:ring-0 focus:outline-0;
+		@apply block w-full transition border-2 rounded-md focus:shadow border-neutral-900 invalid:border-invalid focus:ring-0 focus:outline-0;
 	}
 
 	[type='submit'] {
