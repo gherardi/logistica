@@ -1,5 +1,7 @@
 import { calculateSum, wait } from '../helper.js';
 import TableView from './tableView.js';
+import RiepilogoView from './riepilogoView.js';
+
 class NordovestView extends TableView {
 	constructor() {
 		super('#nordovest');
@@ -33,11 +35,16 @@ class NordovestView extends TableView {
 			return;
 		}
 
+		document.querySelector('#matrice').querySelector('table').inert = true;
+
+		// impostare il totali in basso a destra della somma dei totali e del value
 		let totale = calculateSum(state.totali.produzione);
 		const totaleEl = this.parentElement.querySelector('[data-totale]');
-		// impostare il totali in basso a destra della somma dei totali e del value
 		totaleEl.innerText = totaleEl.dataset.totale = totale;
-		await wait(1.5);
+
+		await wait(0.5);
+
+		RiepilogoView.clearPaper('#nordovest_paper');
 
 		while (this.parentElement.querySelector('[data-riga][data-colonna]') !== null) {
 			await wait(1);
@@ -48,6 +55,14 @@ class NordovestView extends TableView {
 			const differenza = fabbisognoEl.dataset.fabbisogno - produzioneEl.dataset.produzione;
 
 			if (differenza < 0) {
+				RiepilogoView.aggiungiRiga(
+					'#nordovest_paper',
+					this.parentElement.querySelector('[data-produttore]').innerText,
+					this.parentElement.querySelector('[data-consumatore]').innerText,
+					fabbisognoEl.dataset.fabbisogno,
+					cellaEl.dataset.value
+				);
+
 				this.costoTotale += Number(fabbisognoEl.dataset.fabbisogno) * Number(cellaEl.dataset.value);
 
 				this.parentElement
@@ -65,7 +80,16 @@ class NordovestView extends TableView {
 
 				await this.removeColumn(fabbisognoEl.dataset.colonna);
 			} else if (differenza > 0) {
+				RiepilogoView.aggiungiRiga(
+					'#nordovest_paper',
+					this.parentElement.querySelector('[data-produttore]').innerText,
+					this.parentElement.querySelector('[data-consumatore]').innerText,
+					produzioneEl.dataset.produzione,
+					cellaEl.dataset.value
+				);
+
 				this.costoTotale += Number(produzioneEl.dataset.produzione) * Number(cellaEl.dataset.value);
+				
 				this.parentElement
 					.querySelector(`[data-riga='${produzioneEl.dataset.riga}']`)
 					.classList.add('[&>*]:bg-yellow-200');
@@ -81,6 +105,13 @@ class NordovestView extends TableView {
 
 				await this.removeRow(produzioneEl.dataset.riga);
 			} else if (differenza === 0) {
+				RiepilogoView.aggiungiRiga(
+					'#nordovest_paper',
+					this.parentElement.querySelector('[data-produttore]').innerText,
+					this.parentElement.querySelector('[data-consumatore]').innerText,
+					fabbisognoEl.dataset.fabbisogno,
+					cellaEl.dataset.value
+				);
 				this.costoTotale += Number(produzioneEl.dataset.produzione) * Number(cellaEl.dataset.value);
 
 				this.parentElement
@@ -101,7 +132,7 @@ class NordovestView extends TableView {
 				await this.removeColumn(fabbisognoEl.dataset.colonna);
 			}
 		}
-		console.log("costo totale nordovest:" + this.costoTotale);
+		RiepilogoView.aggiungiTotale('#nordovest_paper', this.costoTotale);
 	}
 
 	async removeColumn(colonna) {

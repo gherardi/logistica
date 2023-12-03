@@ -1,13 +1,30 @@
 class RiepilogoView {
-	parentElement = document.querySelector('#riepilogo');
+	static parentElement = document.querySelector('#riepilogo');
 
-	constructor() {
+	static clearPaper(paper) {
+		document.querySelector(paper + '>ul').innerHTML = '';
 	}
 
-  createString (produttore, consumatore, unita, prezzo){
-    return `Da ${produttore} a ${consumatore} nr.${unita}: ${unita} unità a ${prezzo}€ = ${unita*prezzo}€`;
-  }
+	static aggiungiRiga(paper, produttore, consumatore, unita, prezzo) {
+		document.querySelector(paper);
+		const html = this.createString(produttore, consumatore, unita, prezzo);
+		document.querySelector(paper + '> ul').insertAdjacentHTML('beforeend', html);
+	}
 
+	static aggiungiTotale(paper, totale) {
+    console.log(paper, totale);
+    console.log(document.querySelector(paper + ' [data-totale]'));
+		document.querySelector(paper + ' [data-totale]').innerText = totale;
+	}
+
+	static createString(produttore, consumatore, unita, prezzo) {
+		return `
+      <li>
+        <div class="font-semibold">Da ${produttore} a ${consumatore}:</div>
+        <p>${unita} unità a ${prezzo}€ = ${unita * prezzo}€</p>
+      </li>
+    `;
+	}
 }
 
-export default new RiepilogoView();
+export default RiepilogoView;

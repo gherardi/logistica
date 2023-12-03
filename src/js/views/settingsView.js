@@ -11,11 +11,13 @@ class SettingsView {
 				alert('La tabella attuale verrà sovrascritta, riprova per continuare');
 				return;
 			}
+			this.created = true;
 			const dataArr = [...new FormData(e.target)];
 			const data = Object.fromEntries(dataArr);
 			for (const key in data) data[key] = data[key] ? Number(data[key]) : 0;
 			this.parentElement.querySelector('#riempi_tabella').classList.remove('opacity-25');
 			this.parentElement.querySelector('#riempi_tabella').inert = false;
+			document.querySelector('#matrice').querySelector('table').inert = false;
 
 			document.querySelector('[data-view="matrice"]').classList.add('flash');
 
@@ -25,6 +27,9 @@ class SettingsView {
 	addHandlerFill(handler) {
 		this.parentElement.querySelector('#riempi_tabella').addEventListener('submit', (e) => {
 			e.preventDefault();
+
+			this.parentElement.querySelector('#riempi_tabella').inert = false;
+			
 			const dataArr = [...new FormData(e.target)];
 			const data = Object.fromEntries(dataArr);
 
