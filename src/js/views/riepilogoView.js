@@ -12,8 +12,6 @@ class RiepilogoView {
 	}
 
 	static aggiungiTotale(paper, totale) {
-    console.log(paper, totale);
-    console.log(document.querySelector(paper + ' [data-totale]'));
 		document.querySelector(paper + ' [data-totale]').innerText = totale;
 	}
 
