@@ -89,7 +89,8 @@ class MinimiCosti extends TableView {
 				RiepilogoView.aggiungiRiga(
 					'#minimicosti_paper',
 					this.parentElement.querySelector(`[data-produttore='${cellaEl.dataset.riga}']`).innerText,
-					this.parentElement.querySelector(`[data-consumatore='${cellaEl.dataset.colonna}']`).innerText,
+					this.parentElement.querySelector(`[data-consumatore='${cellaEl.dataset.colonna}']`)
+						.innerText,
 					fabbisognoEl.dataset.fabbisogno,
 					cellaEl.dataset.value
 				);
@@ -99,6 +100,8 @@ class MinimiCosti extends TableView {
 				this.parentElement
 					.querySelectorAll(`[data-colonna='${fabbisognoEl.dataset.colonna}']`)
 					.forEach((el) => el.classList.add('bg-yellow-200'));
+
+				cellaEl.classList.add('text-red-400');
 
 				await wait(0.5);
 
@@ -114,7 +117,8 @@ class MinimiCosti extends TableView {
 				RiepilogoView.aggiungiRiga(
 					'#minimicosti_paper',
 					this.parentElement.querySelector(`[data-produttore='${cellaEl.dataset.riga}']`).innerText,
-					this.parentElement.querySelector(`[data-consumatore='${cellaEl.dataset.colonna}']`).innerText,
+					this.parentElement.querySelector(`[data-consumatore='${cellaEl.dataset.colonna}']`)
+						.innerText,
 					produzioneEl.dataset.produzione,
 					cellaEl.dataset.value
 				);
@@ -122,6 +126,8 @@ class MinimiCosti extends TableView {
 				this.parentElement
 					.querySelector(`[data-riga='${produzioneEl.dataset.riga}']`)
 					.classList.add('[&>*]:bg-yellow-200');
+
+				cellaEl.classList.add('text-red-400');
 
 				await wait(0.5);
 
@@ -131,13 +137,14 @@ class MinimiCosti extends TableView {
 
 				fabbisognoEl.dataset.fabbisogno = Math.abs(differenza);
 				fabbisognoEl.innerText = Math.abs(differenza);
-				
+
 				await this.removeRow(produzioneEl.dataset.riga);
 			} else if (differenza === 0) {
 				RiepilogoView.aggiungiRiga(
 					'#minimicosti_paper',
 					this.parentElement.querySelector(`[data-produttore='${cellaEl.dataset.riga}']`).innerText,
-					this.parentElement.querySelector(`[data-consumatore='${cellaEl.dataset.colonna}']`).innerText,
+					this.parentElement.querySelector(`[data-consumatore='${cellaEl.dataset.colonna}']`)
+						.innerText,
 					produzioneEl.dataset.produzione,
 					cellaEl.dataset.value
 				);
@@ -151,6 +158,8 @@ class MinimiCosti extends TableView {
 				this.parentElement
 					.querySelector(`[data-riga='${produzioneEl.dataset.riga}']`)
 					.classList.add('[&>*]:bg-yellow-200');
+
+				cellaEl.classList.add('text-red-400');
 
 				await wait(0.5);
 

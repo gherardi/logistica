@@ -69,6 +69,8 @@ class NordovestView extends TableView {
 					.querySelectorAll(`[data-colonna='${fabbisognoEl.dataset.colonna}']`)
 					.forEach((el) => el.classList.add('bg-yellow-200'));
 
+				cellaEl.classList.add('text-red-400');
+
 				await wait(0.5);
 
 				totaleEl.innerText -= fabbisognoEl.dataset.fabbisogno;
@@ -89,10 +91,12 @@ class NordovestView extends TableView {
 				);
 
 				this.costoTotale += Number(produzioneEl.dataset.produzione) * Number(cellaEl.dataset.value);
-				
+
 				this.parentElement
 					.querySelector(`[data-riga='${produzioneEl.dataset.riga}']`)
 					.classList.add('[&>*]:bg-yellow-200');
+
+				cellaEl.classList.add('text-red-400');
 
 				await wait(0.5);
 
@@ -121,6 +125,8 @@ class NordovestView extends TableView {
 				this.parentElement
 					.querySelector(`[data-riga='${produzioneEl.dataset.riga}']`)
 					.classList.add('[&>*]:bg-yellow-200');
+
+				cellaEl.classList.add('text-red-400');
 
 				await wait(0.5);
 
